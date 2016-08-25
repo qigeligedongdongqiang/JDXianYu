@@ -1,0 +1,20 @@
+PODS:
+  - DACircularProgress (2.3.1)
+  - Masonry (1.0.1)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+
+DEPENDENCIES:
+  - DACircularProgress (~> 2.3.1)
+  - Masonry (~> 1.0.1)
+  - SDWebImage (~> 3.8.1)
+
+SPEC CHECKSUMS:
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+
+PODFILE CHECKSUM: 6d88f6b6f0e9c9c45b4e8c1b7b2807191e5d08f7
+
+COCOAPODS: 1.0.1

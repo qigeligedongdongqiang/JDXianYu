@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="DFp-07-eWF">
+            <objects>
+                <viewController id="n2K-xA-BsS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P9o-ew-061"/>
+                        <viewControllerLayoutGuide type="bottom" id="YVc-VI-0c4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ocj-7E-UVt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="ewg-L9-e3X" id="uKq-vn-HfE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7mF-OZ-yZf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="ewg-L9-e3X">
+                    <connections>
+                        <outlet property="delegate" destination="n2K-xA-BsS" id="can-A9-cZg"/>
+                        <outlet property="searchContentsController" destination="n2K-xA-BsS" id="haN-Su-W1j"/>
+                        <outlet property="searchResultsDataSource" destination="n2K-xA-BsS" id="K8l-qo-fAe"/>
+                        <outlet property="searchResultsDelegate" destination="n2K-xA-BsS" id="WiD-A7-8CM"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="860" y="-100"/>
+        </scene>
+    </scenes>
+</document>
