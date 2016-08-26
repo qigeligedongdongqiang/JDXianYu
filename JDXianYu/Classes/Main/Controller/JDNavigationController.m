@@ -19,21 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-//    UINavigationBar *navBar=[UINavigationBar appearance];
-//    [navBar setBackgroundImage:[UIImage imagewithcolo] forBarMetrics:<#(UIBarMetrics)#>
-//
-//    NSMutableDictionary *atts=[NSMutableDictionary dictionary];
-//    atts[NSFontAttributeName]=[UIFont systemFontOfSize:8];
-//    atts[NSForegroundColorAttributeName]=[UIColor grayColor];
-    
-//    NSMutableDictionary *selectedAtts=[NSMutableDictionary dictionary];
-//    selectedAtts[NSFontAttributeName]=atts[NSFontAttributeName];
-//    selectedAtts[NSForegroundColorAttributeName]=[UIColor darkGrayColor];
-//    
-//    [navBar setTitleTextAttributes:atts forState:UIControlStateNormal];
-//    [item setTitleTextAttributes:selectedAtts forState:UIControlStateSelected];
-
+ 
 }
 
 - (void)didReceiveMemoryWarning {

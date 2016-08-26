@@ -10,10 +10,91 @@
 #import "Masonry.h"
 
 @interface JDHomeTableViewController ()
+@property (nonatomic, strong) UISearchBar *searchBar;
 
 @end
 
 @implementation JDHomeTableViewController
+- (void)viewWillAppear:(BOOL)animated {
+    [self setNavBar];
+    
+}
+    
+
+- (void)setNavBar {
+    //设置导航条背景图片
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"home_bg"] forBarMetrics:UIBarMetricsDefault];
+    //设置leftButtonItem
+    UIImage *img = [[UIImage imageNamed:@"home_bar_scan"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:img style:UIBarButtonItemStylePlain target:self action:@selector(searchCode)];
+    //设置搜索框
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 260, 44)];
+    
+    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
+    
+    //去除搜索框的灰色背景
+    if (version == 7.0) {
+        
+        
+        _searchBar.backgroundColor = [UIColor clearColor];
+        
+        _searchBar.barTintColor = [UIColor clearColor];
+        
+        
+    }else{
+        
+        for(int i =  0 ;i < _searchBar.subviews.count;i++){
+            
+            UIView * backView = _searchBar.subviews[i];
+            
+            if ([backView isKindOfClass:NSClassFromString(@"UISearchBarBackground")] == YES) {
+                
+                
+                [backView removeFromSuperview];
+                [_searchBar setBackgroundColor:[UIColor clearColor]];
+                break;
+                
+            }else{
+                
+                
+                NSArray * arr = _searchBar.subviews[i].subviews;
+                
+                for(int j = 0;j<arr.count;j++   ){
+                    
+                    UIView * barView = arr[i];
+                    
+                    
+                    
+                    if ([barView isKindOfClass:NSClassFromString(@"UISearchBarBackground")] == YES) {
+                        
+                        
+                        [barView removeFromSuperview];
+                        [_searchBar setBackgroundColor:[UIColor clearColor]];
+                        break;
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    //    [self.searchBar setTintColor:[UIColor blackColor]];
+    [self.searchBar setPlaceholder:@"请输入宝贝关键字或@用户名"];
+    
+    UITextField * searchField = [_searchBar valueForKey:@"_searchField"];
+    [searchField setValue:[UIFont systemFontOfSize:12] forKeyPath:@"_placeholderLabel.font"];
+    
+    
+    UIView *searchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 260, 44)];
+    [searchView addSubview:self.searchBar];
+    self.navigationItem.titleView = searchView;
+    
+    //设置rightButtonItem
+    UIImage *imgR = [[UIImage imageNamed:@"home_category_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:imgR style:UIBarButtonItemStylePlain target:self action:@selector(moreGategory)];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,24 +103,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"home_bg"] forBarMetrics:UIBarMetricsDefault];
     
-    UINavigationItem *navItem = self.navigationController.navigationItem;
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    view.backgroundColor = [UIColor blackColor];
-//    UITextField *search = [[UITextField alloc]init];
-    [navItem setTitleView:view];
-//    navItem
-//    search.bounds = CGRectMake(0, 0, 300, 30);
-//    search.center = navBar.center;
-//    [navBar addSubview:search];
-//    
-    
-   
-    
-
-//    [navBar addSubview:search];
 }
 
 - (void)didReceiveMemoryWarning {
