@@ -8,18 +8,26 @@
 
 #import "JDHomeTableViewController.h"
 #import "Masonry.h"
+#import "JDHomeADView.h"
+#import "JDHomeNormalCell.h"
+#import "JDHomeCell.h"
 
-@interface JDHomeTableViewController ()
+
+@interface JDHomeTableViewController ()<UITableViewDataSource>
 @property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) NSMutableArray *homeCells;
 
 @end
 
 @implementation JDHomeTableViewController
-- (void)viewWillAppear:(BOOL)animated {
-    [self setNavBar];
-    
+
+- (NSMutableArray *)homeCells{
+    if(_homeCells==nil){
+        _homeCells=[JDHomeNormalCell homeCellsList];
+    }
+    return _homeCells;
 }
-    
+
 
 - (void)setNavBar {
     //设置导航条背景图片
@@ -99,10 +107,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    
+    [self setNavBar];
+//    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.tableHeaderView = [JDHomeADView homeADView];
+//    self.tableView.shouldGroupAccessibilityChildren = YES;
     
 }
 
@@ -114,24 +129,25 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    return self.homeCells.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    JDHomeCell *cell = [JDHomeCell homeCellWithTableView:tableView];
+    JDHomeNormalCell *homeCell = self.homeCells[indexPath.row];
+    cell.homeCell = homeCell;
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

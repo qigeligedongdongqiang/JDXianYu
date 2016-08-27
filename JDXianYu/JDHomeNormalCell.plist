@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>head</key>
+		<string>6个新宝贝入塘</string>
+		<key>selfDescription</key>
+		<string>摇杆外设爱好者</string>
+		<key>foot</key>
+		<string>来自感兴趣的鱼塘</string>
+		<key>img1</key>
+		<string>yg_0</string>
+		<key>img2</key>
+		<string>yg_1</string>
+	</dict>
+	<dict>
+		<key>head</key>
+		<string>40个新宝贝入塘</string>
+		<key>selfDescription</key>
+		<string>佳能发布1560</string>
+		<key>foot</key>
+		<string>来自感兴趣的鱼塘</string>
+		<key>img1</key>
+		<string>jn_0</string>
+		<key>img2</key>
+		<string>jn_1</string>
+	</dict>
+</array>
+</plist>

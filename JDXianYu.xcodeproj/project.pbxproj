@@ -24,6 +24,12 @@
 		D2AC80C81D6AC6CF00D6FB28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AC80C61D6AC6CF00D6FB28 /* Main.storyboard */; };
 		D2AC80CA1D6AC6CF00D6FB28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AC80C91D6AC6CF00D6FB28 /* Assets.xcassets */; };
 		D2AC80CD1D6AC6CF00D6FB28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AC80CB1D6AC6CF00D6FB28 /* LaunchScreen.storyboard */; };
+		D2DF6D591D6FED5200F5BCFA /* JDHomeADView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2DF6D581D6FED5200F5BCFA /* JDHomeADView.xib */; };
+		D2DF6D5F1D6FF19700F5BCFA /* JDHomeADView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF6D5E1D6FF19700F5BCFA /* JDHomeADView.m */; };
+		D2DF6D611D6FFDA900F5BCFA /* JDHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2DF6D601D6FFDA900F5BCFA /* JDHomeCell.xib */; };
+		D2DF6D6A1D7051D700F5BCFA /* JDHomeNormalCell.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2DF6D691D7051D700F5BCFA /* JDHomeNormalCell.plist */; };
+		D2DF6D6D1D70570900F5BCFA /* JDHomeNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF6D6C1D70570900F5BCFA /* JDHomeNormalCell.m */; };
+		D2DF6D731D7057BC00F5BCFA /* JDHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF6D721D7057BC00F5BCFA /* JDHomeCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +65,15 @@
 		D2AC80C91D6AC6CF00D6FB28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2AC80CC1D6AC6CF00D6FB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2AC80CE1D6AC6CF00D6FB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2DF6D581D6FED5200F5BCFA /* JDHomeADView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JDHomeADView.xib; sourceTree = "<group>"; };
+		D2DF6D5D1D6FF19700F5BCFA /* JDHomeADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDHomeADView.h; sourceTree = "<group>"; };
+		D2DF6D5E1D6FF19700F5BCFA /* JDHomeADView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDHomeADView.m; sourceTree = "<group>"; };
+		D2DF6D601D6FFDA900F5BCFA /* JDHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JDHomeCell.xib; sourceTree = "<group>"; };
+		D2DF6D691D7051D700F5BCFA /* JDHomeNormalCell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JDHomeNormalCell.plist; sourceTree = "<group>"; };
+		D2DF6D6B1D70570900F5BCFA /* JDHomeNormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDHomeNormalCell.h; sourceTree = "<group>"; };
+		D2DF6D6C1D70570900F5BCFA /* JDHomeNormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDHomeNormalCell.m; sourceTree = "<group>"; };
+		D2DF6D711D7057BC00F5BCFA /* JDHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDHomeCell.h; sourceTree = "<group>"; };
+		D2DF6D721D7057BC00F5BCFA /* JDHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDHomeCell.m; sourceTree = "<group>"; };
 		F4E258064D9D8897781DF9E5 /* Pods-JDXianYu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDXianYu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JDXianYu/Pods-JDXianYu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +186,8 @@
 		D251C2AF1D6ECCFD008903D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D2DF6D6B1D70570900F5BCFA /* JDHomeNormalCell.h */,
+				D2DF6D6C1D70570900F5BCFA /* JDHomeNormalCell.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +195,12 @@
 		D251C2B01D6ECCFD008903D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D2DF6D581D6FED5200F5BCFA /* JDHomeADView.xib */,
+				D2DF6D5D1D6FF19700F5BCFA /* JDHomeADView.h */,
+				D2DF6D5E1D6FF19700F5BCFA /* JDHomeADView.m */,
+				D2DF6D601D6FFDA900F5BCFA /* JDHomeCell.xib */,
+				D2DF6D711D7057BC00F5BCFA /* JDHomeCell.h */,
+				D2DF6D721D7057BC00F5BCFA /* JDHomeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -397,6 +420,7 @@
 				D2AC80C61D6AC6CF00D6FB28 /* Main.storyboard */,
 				D2AC80C91D6AC6CF00D6FB28 /* Assets.xcassets */,
 				D2AC80CE1D6AC6CF00D6FB28 /* Info.plist */,
+				D2DF6D691D7051D700F5BCFA /* JDHomeNormalCell.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -463,8 +487,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2AC80CD1D6AC6CF00D6FB28 /* LaunchScreen.storyboard in Resources */,
+				D2DF6D591D6FED5200F5BCFA /* JDHomeADView.xib in Resources */,
 				D2AC80CA1D6AC6CF00D6FB28 /* Assets.xcassets in Resources */,
+				D2DF6D611D6FFDA900F5BCFA /* JDHomeCell.xib in Resources */,
 				D2AC80C81D6AC6CF00D6FB28 /* Main.storyboard in Resources */,
+				D2DF6D6A1D7051D700F5BCFA /* JDHomeNormalCell.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,11 +557,14 @@
 				D251C2DB1D6ECCFD008903D1 /* JDHomeTableViewController.m in Sources */,
 				D251C2E51D6ECCFD008903D1 /* JDPostMenuButton.m in Sources */,
 				D251C2DD1D6ECCFD008903D1 /* JDNavigationController.m in Sources */,
+				D2DF6D6D1D70570900F5BCFA /* JDHomeNormalCell.m in Sources */,
 				D251C2DC1D6ECCFD008903D1 /* JDAdLaunchView.m in Sources */,
+				D2DF6D5F1D6FF19700F5BCFA /* JDHomeADView.m in Sources */,
 				D251C2DE1D6ECCFD008903D1 /* JDTabbarController.m in Sources */,
 				D251C2DF1D6ECCFD008903D1 /* JDTabbar.m in Sources */,
 				D251C2DA1D6ECCFD008903D1 /* JDFishTableViewController.m in Sources */,
 				D251C2E41D6ECCFD008903D1 /* JDPostViewController.m in Sources */,
+				D2DF6D731D7057BC00F5BCFA /* JDHomeCell.m in Sources */,
 				D251C2E31D6ECCFD008903D1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

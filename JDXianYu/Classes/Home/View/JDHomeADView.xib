@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="FV1-Jm-cBF" customClass="JDHomeADView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="adBottom_1" translatesAutoresizingMaskIntoConstraints="NO" id="jd5-J9-7Xm">
+                    <rect key="frame" x="0.0" y="130" width="94" height="110"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="adBottom_2" translatesAutoresizingMaskIntoConstraints="NO" id="tw5-VV-6t7">
+                    <rect key="frame" x="94" y="130" width="94" height="110"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="adbottom_3" translatesAutoresizingMaskIntoConstraints="NO" id="DlC-dw-If5">
+                    <rect key="frame" x="187" y="130" width="94" height="110"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="adbottom_4" translatesAutoresizingMaskIntoConstraints="NO" id="eXz-El-drO">
+                    <rect key="frame" x="281" y="130" width="94" height="110"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IIl-es-xWB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1Wg-zr-v5B">
+                    <rect key="frame" x="168" y="102" width="39" height="37"/>
+                    <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="currentPageIndicatorTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </pageControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="pageControl" destination="1Wg-zr-v5B" id="BaQ-Xw-9p0"/>
+                <outlet property="scrollView" destination="IIl-es-xWB" id="1Ua-5N-7Oj"/>
+            </connections>
+            <point key="canvasLocation" x="95.5" y="75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="adBottom_1" width="176" height="211"/>
+        <image name="adBottom_2" width="175" height="210"/>
+        <image name="adbottom_3" width="175" height="210"/>
+        <image name="adbottom_4" width="176" height="211"/>
+    </resources>
+</document>
