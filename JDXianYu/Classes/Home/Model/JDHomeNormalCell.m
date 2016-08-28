@@ -23,7 +23,7 @@
 
 + (NSMutableArray *)homeCellsList{
     NSBundle *bundle= [NSBundle mainBundle];
-    NSString *path= [bundle pathForResource:@"JDHpmeNormalCell" ofType:@"plist"];
+    NSString *path= [bundle pathForResource:@"JDHomeNormalCell" ofType:@"plist"];
     NSArray *dicArray= [NSArray arrayWithContentsOfFile:path];
     NSMutableArray *tempArray=[NSMutableArray array];
     for(NSDictionary *dic in dicArray){

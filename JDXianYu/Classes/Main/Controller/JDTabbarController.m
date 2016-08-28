@@ -60,7 +60,7 @@
 {
     
     
-    JDHomeTableViewController *HomeVC = [[JDHomeTableViewController alloc] init];
+    JDHomeTableViewController *HomeVC = [[JDHomeTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [self setUpOneChildVcWithVc:HomeVC Image:@"home_normal" selectedImage:@"home_highlight" title:@"闲鱼"];
     
     JDFishTableViewController *FishVC = [[JDFishTableViewController alloc] init];

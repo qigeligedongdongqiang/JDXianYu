@@ -13,7 +13,7 @@
 #import "JDHomeCell.h"
 
 
-@interface JDHomeTableViewController ()<UITableViewDataSource>
+@interface JDHomeTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *homeCells;
 
@@ -114,10 +114,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     
     [self setNavBar];
-//    self.tableView.delegate = self;
+    self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableHeaderView = [JDHomeADView homeADView];
-//    self.tableView.shouldGroupAccessibilityChildren = YES;
     
 }
 
@@ -130,7 +129,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -148,7 +147,18 @@
     return cell;
 }
 
+#pragma mark - tableView delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 110;
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 1;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
