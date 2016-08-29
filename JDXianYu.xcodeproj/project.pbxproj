@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A39534CA98DC7BBE121772A /* libPods-JDXianYu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD6241839063169176ECBB9 /* libPods-JDXianYu.a */; };
+		D249DCC31D73DC8700E567EC /* JDRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = D249DCC21D73DC8700E567EC /* JDRefreshView.m */; };
 		D251C2D91D6ECCFD008903D1 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D251C2A41D6ECCFD008903D1 /* UIImage+Extension.m */; };
 		D251C2DA1D6ECCFD008903D1 /* JDFishTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D251C2A81D6ECCFD008903D1 /* JDFishTableViewController.m */; };
 		D251C2DB1D6ECCFD008903D1 /* JDHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D251C2AE1D6ECCFD008903D1 /* JDHomeTableViewController.m */; };
@@ -35,6 +36,8 @@
 /* Begin PBXFileReference section */
 		5FD6241839063169176ECBB9 /* libPods-JDXianYu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JDXianYu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6269337EEC2C4BE1F48FC000 /* Pods-JDXianYu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDXianYu.release.xcconfig"; path = "Pods/Target Support Files/Pods-JDXianYu/Pods-JDXianYu.release.xcconfig"; sourceTree = "<group>"; };
+		D249DCC11D73DC8700E567EC /* JDRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDRefreshView.h; sourceTree = "<group>"; };
+		D249DCC21D73DC8700E567EC /* JDRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDRefreshView.m; sourceTree = "<group>"; };
 		D251C2A31D6ECCFD008903D1 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		D251C2A41D6ECCFD008903D1 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		D251C2A71D6ECCFD008903D1 /* JDFishTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDFishTableViewController.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				D2DF6D601D6FFDA900F5BCFA /* JDHomeCell.xib */,
 				D2DF6D711D7057BC00F5BCFA /* JDHomeCell.h */,
 				D2DF6D721D7057BC00F5BCFA /* JDHomeCell.m */,
+				D249DCC11D73DC8700E567EC /* JDRefreshView.h */,
+				D249DCC21D73DC8700E567EC /* JDRefreshView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -553,6 +558,7 @@
 				D251C2E21D6ECCFD008903D1 /* AppDelegate.m in Sources */,
 				D251C2E11D6ECCFD008903D1 /* JDMineTableViewController.m in Sources */,
 				D251C2D91D6ECCFD008903D1 /* UIImage+Extension.m in Sources */,
+				D249DCC31D73DC8700E567EC /* JDRefreshView.m in Sources */,
 				D251C2E01D6ECCFD008903D1 /* JDMessageTableViewController.m in Sources */,
 				D251C2DB1D6ECCFD008903D1 /* JDHomeTableViewController.m in Sources */,
 				D251C2E51D6ECCFD008903D1 /* JDPostMenuButton.m in Sources */,
