@@ -17,6 +17,7 @@ extern NSString * const JDScanQRCodeMessageKey;
 @protocol JDScanViewDelegate <NSObject>
 
 - (void)scanView: (JDScanView *)scanView codeInfo: (NSString *)codeInfo;
+- (void)scanViewDismissSuperViewController:(JDScanView *)scanView;
 
 @end
 

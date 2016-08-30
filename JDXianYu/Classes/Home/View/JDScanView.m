@@ -289,7 +289,11 @@ NSString * const JDScanQRCodeMessageKey = @"JDScanQRCodeMessageKey";
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self stop];
-    [self removeFromSuperview];
+    if ([self.delegate respondsToSelector: @selector(scanViewDismissSuperViewController:)]) {
+        [self.delegate scanViewDismissSuperViewController:self];
+        [self removeFromSuperview];
+    }
+    
 }
 
 

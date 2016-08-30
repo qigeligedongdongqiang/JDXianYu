@@ -15,10 +15,9 @@
 #import "JDScanView.h"
 #import "JDScanCodeControllerViewController.h"
 
-@interface JDHomeTableViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,JDScanViewDelegate, JDScanCodeControllerViewControllerDelegate>
+@interface JDHomeTableViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,JDScanCodeControllerViewControllerDelegate>
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *homeCells;
-@property (nonatomic, strong) JDScanView *scanView;
 
 @end
 
@@ -92,7 +91,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"home_bg"] forBarMetrics:UIBarMetricsDefault];
     //设置leftButtonItem
     UIImage *img = [[UIImage imageNamed:@"home_bar_scan"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:img style:UIBarButtonItemStylePlain target:self action:@selector(scan:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:img style:UIBarButtonItemStylePlain target:self action:@selector(jumpToScan)];
     //设置搜索框
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 260, 44)];
     
@@ -158,7 +157,7 @@
     
     //设置rightButtonItem
     UIImage *imgR = [[UIImage imageNamed:@"home_category_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:imgR style:UIBarButtonItemStylePlain target:self action:@selector(jumpToScan:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:imgR style:UIBarButtonItemStylePlain target:self action:@selector(jumpToMore)];
     
 }
 
@@ -169,7 +168,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%f,%f",self.tableView.contentInset.top,self.tableView.contentInset.bottom);
+//    NSLog(@"%f,%f",self.tableView.contentInset.top,self.tableView.contentInset.bottom);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -183,16 +182,6 @@
     
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear: animated];
-    [self.scanView stop];
-}
-
-- (void)dealloc
-{
-    [self.scanView stop];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -338,50 +327,20 @@
 }
 
 #pragma mark - event
-- (void)scan:(id)sender
-{
-    [self.view addSubview: self.scanView];
-    [self.scanView start];
-}
 
-- (void)jumpToScan:(id)sender
+- (void)jumpToScan
 {
-    [self.scanView removeFromSuperview];
     JDScanCodeControllerViewController * scanCodeController = [JDScanCodeControllerViewController scanCodeController];
     scanCodeController.scanDelegate = self;
-    [self.navigationController pushViewController: scanCodeController animated: YES];
+    [scanCodeController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:scanCodeController animated:YES completion:nil];
+//    [self.navigationController pushViewController: scanCodeController animated: YES];
+    
 }
 
-
-
-#pragma mark - getter
-/**
- *  懒加载扫描view
- */
-- (JDScanView *)scanView
-{
-    if (!_scanView) {
-        _scanView = [JDScanView scanViewShowInController: self];
-    }
-    return _scanView;
+- (void)jumpToMore {
+    NSLog(@"%s",__func__);
 }
-
-
-#pragma mark - JDScanViewDelegate
-/**
- *  返回扫描结果
- */
-- (void)scanView:(JDScanView *)scanView codeInfo:(NSString *)codeInfo
-{
-    NSURL * url = [NSURL URLWithString: codeInfo];
-    if ([[UIApplication sharedApplication] canOpenURL: url]) {
-        [[UIApplication sharedApplication] openURL: url];
-    } else {
-        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"警告" message: [NSString stringWithFormat: @"%@:%@", @"无法解析的二维码", codeInfo] delegate: nil cancelButtonTitle: @"确定" otherButtonTitles: nil];
-        [alertView show];
-    }
-}
-
 
 #pragma mark - JDScanCodeControllerDelegate
 - (void)scanCodeController:(JDScanCodeControllerViewController *)scanCodeController codeInfo:(NSString *)codeInfo

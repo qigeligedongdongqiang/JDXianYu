@@ -36,9 +36,10 @@
 #pragma mark - life
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES];
-    self.tabBarController.tabBar.hidden = YES;
-    self.view.backgroundColor = [UIColor whiteColor];
+//    [self.navigationController setNavigationBarHidden:YES];
+//    [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+//    self.tabBarController.tabBar.hidden = YES;
+    self.view.backgroundColor = [UIColor darkGrayColor];
     [self.view addSubview: self.scanView];
 }
 
@@ -78,6 +79,9 @@
     }
 }
 
+- (void)scanViewDismissSuperViewController:(JDScanView *)scanView {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 /*
 #pragma mark - Navigation
