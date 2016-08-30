@@ -12,11 +12,13 @@
 #import "JDHomeNormalCell.h"
 #import "JDHomeCell.h"
 #import "JDRefreshView.h"
+#import "JDScanView.h"
+#import "JDScanCodeControllerViewController.h"
 
-
-@interface JDHomeTableViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface JDHomeTableViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,JDScanViewDelegate, JDScanCodeControllerViewControllerDelegate>
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *homeCells;
+@property (nonatomic, strong) JDScanView *scanView;
 
 @end
 
@@ -90,7 +92,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"home_bg"] forBarMetrics:UIBarMetricsDefault];
     //设置leftButtonItem
     UIImage *img = [[UIImage imageNamed:@"home_bar_scan"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:img style:UIBarButtonItemStylePlain target:self action:@selector(searchCode)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:img style:UIBarButtonItemStylePlain target:self action:@selector(scan:)];
     //设置搜索框
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 260, 44)];
     
@@ -156,32 +158,40 @@
     
     //设置rightButtonItem
     UIImage *imgR = [[UIImage imageNamed:@"home_category_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:imgR style:UIBarButtonItemStylePlain target:self action:@selector(moreCategory)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:imgR style:UIBarButtonItemStylePlain target:self action:@selector(jumpToScan:)];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setNavBar];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    NSLog(@"%f",self.tableView.contentSize.height);
+    NSLog(@"%f,%f",self.tableView.contentInset.top,self.tableView.contentInset.bottom);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     
-    [self setNavBar];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableHeaderView = [JDHomeADView homeADView];
     
 }
 
-- (void)searchCode {
-    NSLog(@"%s",__func__);
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear: animated];
+    [self.scanView stop];
 }
 
-- (void)moreCategory {
-    NSLog(@"%s",__func__);
+- (void)dealloc
+{
+    [self.scanView stop];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -227,28 +237,28 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    //动态修改headerView的位置
-    if (headerRefreshing)
-    {
-        if (scrollView.contentOffset.y >= -scrollView.contentInset.top
-            && scrollView.contentOffset.y < 0)
-            
-        {
-            //注意:修改scrollView.contentInset时，若使当前界面显示位置发生变化，会触发scrollViewDidScroll:，从而导致死循环。
-            //因此此处scrollView.contentInset.top必须为-scrollView.contentOffset.y
-            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-        }
-        else if (scrollView.contentOffset.y == 0)//到0说明headerView已经在tableView最上方，不需要再修改了
-        {
-            scrollView.contentInset = UIEdgeInsetsZero;
-        }
-    }
+//    //动态修改headerView的位置
+//    if (headerRefreshing)
+//    {
+//        if (scrollView.contentOffset.y >= -scrollView.contentInset.top
+//            && scrollView.contentOffset.y < 0)
+//            
+//        {
+//            //注意:修改scrollView.contentInset时，若使当前界面显示位置发生变化，会触发scrollViewDidScroll:，从而导致死循环。
+//            //因此此处scrollView.contentInset.top必须为-scrollView.contentOffset.y
+//            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+//        }
+//        else if (scrollView.contentOffset.y == 0)//到0说明headerView已经在tableView最上方，不需要再修改了
+//        {
+//            scrollView.contentInset = UIEdgeInsetsZero;
+//        }
+//    }
     
     //other code here...
    
     
     //拉动足够距离，头部刷新控件状态变更为“松开....” ，底部刷新控件状态直接变为“加载中”
-    if (scrollView.contentOffset.y < -self.dragHeaderHeight - 64-10 && !headerRefreshing && !footerRefreshing) {
+    if (scrollView.contentOffset.y < -self.dragHeaderHeight -10 && !headerRefreshing && !footerRefreshing) {
         if (dragHeaderView)
         {
             if (dragHeaderView.state == JDRefreshViewStateDragToRefresh)
@@ -257,9 +267,10 @@
             }
         }
 
-    } else if (scrollView.contentOffset.y>0 && scrollView.contentOffset.y<=self.dragFooterHeight && !headerRefreshing && !footerRefreshing){
+    } else if (scrollView.contentOffset.y>0 && !headerRefreshing && !footerRefreshing){
         if (dragFooterView){
             [dragFooterView setState:JDRefreshViewStateRefreshing];
+            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, self.dragFooterHeight, 0);
             footerRefreshing = YES;
             dispatch_async(dispatch_queue_create("concurrent", DISPATCH_QUEUE_CONCURRENT), ^{
                 for (int i=0; i<999; i++) {
@@ -281,13 +292,13 @@
     //拉动足够距离，松开后，状态变更为“加载中...”
     
         if (dragHeaderView.state == JDRefreshViewStateLooseToRefresh
-            && scrollView.contentOffset.y < -self.dragHeaderHeight - 64 - 10
+            && scrollView.contentOffset.y < -self.dragHeaderHeight - 10
             && !headerRefreshing
             && !footerRefreshing)//每次只允许上拉或者下拉其中一个执行
         {
             headerRefreshing = YES;
             //使refresh panel保持显示
-            self.tableView.contentInset = UIEdgeInsetsMake(self.dragHeaderHeight+64, 0, 0, 0);
+            self.tableView.contentInset = UIEdgeInsetsMake(self.dragHeaderHeight, 0, 0, 0);
             [dragHeaderView setState:JDRefreshViewStateRefreshing];
             
         }
@@ -313,19 +324,76 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         if (type == JDRefreshViewTypeHeader) {
-            self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+            self.tableView.contentInset = UIEdgeInsetsZero;
+            [dragHeaderView setState:JDRefreshViewStateDragToRefresh];
+        }else if (type == JDRefreshViewTypeFooter) {
+            [dragFooterView setState:JDRefreshViewStateDragToRefresh];
+            self.tableView.contentInset = UIEdgeInsetsZero;
         }
         
-        [dragHeaderView setState:JDRefreshViewStateDragToRefresh];
-        
-    }) ;
-       
-    
-    headerRefreshing = NO;
-    footerRefreshing = NO;
+        headerRefreshing = NO;
+        footerRefreshing = NO;
+
+    });
+}
+
+#pragma mark - event
+- (void)scan:(id)sender
+{
+    [self.view addSubview: self.scanView];
+    [self.scanView start];
+}
+
+- (void)jumpToScan:(id)sender
+{
+    [self.scanView removeFromSuperview];
+    JDScanCodeControllerViewController * scanCodeController = [JDScanCodeControllerViewController scanCodeController];
+    scanCodeController.scanDelegate = self;
+    [self.navigationController pushViewController: scanCodeController animated: YES];
 }
 
 
+
+#pragma mark - getter
+/**
+ *  懒加载扫描view
+ */
+- (JDScanView *)scanView
+{
+    if (!_scanView) {
+        _scanView = [JDScanView scanViewShowInController: self];
+    }
+    return _scanView;
+}
+
+
+#pragma mark - JDScanViewDelegate
+/**
+ *  返回扫描结果
+ */
+- (void)scanView:(JDScanView *)scanView codeInfo:(NSString *)codeInfo
+{
+    NSURL * url = [NSURL URLWithString: codeInfo];
+    if ([[UIApplication sharedApplication] canOpenURL: url]) {
+        [[UIApplication sharedApplication] openURL: url];
+    } else {
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"警告" message: [NSString stringWithFormat: @"%@:%@", @"无法解析的二维码", codeInfo] delegate: nil cancelButtonTitle: @"确定" otherButtonTitles: nil];
+        [alertView show];
+    }
+}
+
+
+#pragma mark - JDScanCodeControllerDelegate
+- (void)scanCodeController:(JDScanCodeControllerViewController *)scanCodeController codeInfo:(NSString *)codeInfo
+{
+    NSURL * url = [NSURL URLWithString: codeInfo];
+    if ([[UIApplication sharedApplication] canOpenURL: url]) {
+        [[UIApplication sharedApplication] openURL: url];
+    } else {
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"警告" message: [NSString stringWithFormat: @"%@:%@", @"无法解析的二维码", codeInfo] delegate: nil cancelButtonTitle: @"确定" otherButtonTitles: nil];
+        [alertView show];
+    }
+}
 
 
 /*

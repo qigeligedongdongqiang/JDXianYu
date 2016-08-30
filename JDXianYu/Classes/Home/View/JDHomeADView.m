@@ -42,7 +42,10 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+        NSDictionary *dic;
+        if (data) {
+            dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+        }
     
         for(int i=0;i<imgCount;i++){
             UIImageView *imgView=[[UIImageView alloc] init];

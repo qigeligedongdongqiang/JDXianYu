@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A39534CA98DC7BBE121772A /* libPods-JDXianYu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD6241839063169176ECBB9 /* libPods-JDXianYu.a */; };
 		D249DCC31D73DC8700E567EC /* JDRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = D249DCC21D73DC8700E567EC /* JDRefreshView.m */; };
+		D249DCC61D7549E400E567EC /* JDScanCodeControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D249DCC51D7549E400E567EC /* JDScanCodeControllerViewController.m */; };
+		D249DCC91D754CB800E567EC /* JDScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = D249DCC81D754CB800E567EC /* JDScanView.m */; };
 		D251C2D91D6ECCFD008903D1 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D251C2A41D6ECCFD008903D1 /* UIImage+Extension.m */; };
 		D251C2DA1D6ECCFD008903D1 /* JDFishTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D251C2A81D6ECCFD008903D1 /* JDFishTableViewController.m */; };
 		D251C2DB1D6ECCFD008903D1 /* JDHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D251C2AE1D6ECCFD008903D1 /* JDHomeTableViewController.m */; };
@@ -38,6 +40,10 @@
 		6269337EEC2C4BE1F48FC000 /* Pods-JDXianYu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDXianYu.release.xcconfig"; path = "Pods/Target Support Files/Pods-JDXianYu/Pods-JDXianYu.release.xcconfig"; sourceTree = "<group>"; };
 		D249DCC11D73DC8700E567EC /* JDRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDRefreshView.h; sourceTree = "<group>"; };
 		D249DCC21D73DC8700E567EC /* JDRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDRefreshView.m; sourceTree = "<group>"; };
+		D249DCC41D7549E400E567EC /* JDScanCodeControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDScanCodeControllerViewController.h; sourceTree = "<group>"; };
+		D249DCC51D7549E400E567EC /* JDScanCodeControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDScanCodeControllerViewController.m; sourceTree = "<group>"; };
+		D249DCC71D754CB800E567EC /* JDScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDScanView.h; sourceTree = "<group>"; };
+		D249DCC81D754CB800E567EC /* JDScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDScanView.m; sourceTree = "<group>"; };
 		D251C2A31D6ECCFD008903D1 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		D251C2A41D6ECCFD008903D1 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		D251C2A71D6ECCFD008903D1 /* JDFishTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDFishTableViewController.h; sourceTree = "<group>"; };
@@ -182,6 +188,8 @@
 			children = (
 				D251C2AD1D6ECCFD008903D1 /* JDHomeTableViewController.h */,
 				D251C2AE1D6ECCFD008903D1 /* JDHomeTableViewController.m */,
+				D249DCC41D7549E400E567EC /* JDScanCodeControllerViewController.h */,
+				D249DCC51D7549E400E567EC /* JDScanCodeControllerViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -206,6 +214,8 @@
 				D2DF6D721D7057BC00F5BCFA /* JDHomeCell.m */,
 				D249DCC11D73DC8700E567EC /* JDRefreshView.h */,
 				D249DCC21D73DC8700E567EC /* JDRefreshView.m */,
+				D249DCC71D754CB800E567EC /* JDScanView.h */,
+				D249DCC81D754CB800E567EC /* JDScanView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -561,6 +571,7 @@
 				D249DCC31D73DC8700E567EC /* JDRefreshView.m in Sources */,
 				D251C2E01D6ECCFD008903D1 /* JDMessageTableViewController.m in Sources */,
 				D251C2DB1D6ECCFD008903D1 /* JDHomeTableViewController.m in Sources */,
+				D249DCC91D754CB800E567EC /* JDScanView.m in Sources */,
 				D251C2E51D6ECCFD008903D1 /* JDPostMenuButton.m in Sources */,
 				D251C2DD1D6ECCFD008903D1 /* JDNavigationController.m in Sources */,
 				D2DF6D6D1D70570900F5BCFA /* JDHomeNormalCell.m in Sources */,
@@ -569,6 +580,7 @@
 				D251C2DE1D6ECCFD008903D1 /* JDTabbarController.m in Sources */,
 				D251C2DF1D6ECCFD008903D1 /* JDTabbar.m in Sources */,
 				D251C2DA1D6ECCFD008903D1 /* JDFishTableViewController.m in Sources */,
+				D249DCC61D7549E400E567EC /* JDScanCodeControllerViewController.m in Sources */,
 				D251C2E41D6ECCFD008903D1 /* JDPostViewController.m in Sources */,
 				D2DF6D731D7057BC00F5BCFA /* JDHomeCell.m in Sources */,
 				D251C2E31D6ECCFD008903D1 /* main.m in Sources */,
