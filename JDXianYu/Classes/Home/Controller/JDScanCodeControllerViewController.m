@@ -73,7 +73,7 @@
 {
     if ([_scanDelegate respondsToSelector: @selector(scanCodeController:codeInfo:)]) {
         [_scanDelegate scanCodeController: self codeInfo: codeInfo];
-        [self.navigationController popViewControllerAnimated: YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         [[NSNotificationCenter defaultCenter] postNotificationName: JDSuccessScanQRCodeNotification object: self userInfo: @{ JDScanQRCodeMessageKey: codeInfo }];
     }

@@ -11,28 +11,62 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="adBottom_1" translatesAutoresizingMaskIntoConstraints="NO" id="jd5-J9-7Xm">
-                    <rect key="frame" x="0.0" y="130" width="94" height="110"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="adBottom_2" translatesAutoresizingMaskIntoConstraints="NO" id="tw5-VV-6t7">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adBottom_2" translatesAutoresizingMaskIntoConstraints="NO" id="tw5-VV-6t7">
                     <rect key="frame" x="94" y="130" width="94" height="110"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="Xur-sf-GRi"/>
+                        <constraint firstAttribute="width" constant="94" id="zEq-TQ-lgb"/>
+                    </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="adbottom_3" translatesAutoresizingMaskIntoConstraints="NO" id="DlC-dw-If5">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adbottom_3" translatesAutoresizingMaskIntoConstraints="NO" id="DlC-dw-If5">
                     <rect key="frame" x="187" y="130" width="94" height="110"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="94" id="QXk-KT-jVx"/>
+                        <constraint firstAttribute="height" constant="110" id="sM6-l4-HT3"/>
+                    </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="adbottom_4" translatesAutoresizingMaskIntoConstraints="NO" id="eXz-El-drO">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adbottom_4" translatesAutoresizingMaskIntoConstraints="NO" id="eXz-El-drO">
                     <rect key="frame" x="281" y="130" width="94" height="110"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="K47-SS-poO"/>
+                        <constraint firstAttribute="width" constant="94" id="Rj7-kk-TCa"/>
+                    </constraints>
                 </imageView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IIl-es-xWB">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIl-es-xWB">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="nzN-Tn-7U5"/>
+                    </constraints>
                 </scrollView>
-                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1Wg-zr-v5B">
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1Wg-zr-v5B">
                     <rect key="frame" x="168" y="102" width="39" height="37"/>
                     <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="currentPageIndicatorTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </pageControl>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adBottom_1" translatesAutoresizingMaskIntoConstraints="NO" id="jd5-J9-7Xm">
+                    <rect key="frame" x="0.0" y="130" width="94" height="110"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="94" id="Qga-HX-Zfr"/>
+                        <constraint firstAttribute="height" constant="110" id="VHk-5T-oDg"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="tw5-VV-6t7" secondAttribute="bottom" id="2Rg-Hb-Zrf"/>
+                <constraint firstItem="tw5-VV-6t7" firstAttribute="leading" secondItem="jd5-J9-7Xm" secondAttribute="trailing" id="89e-q8-q5a"/>
+                <constraint firstAttribute="bottom" secondItem="jd5-J9-7Xm" secondAttribute="bottom" id="FjQ-59-gGL"/>
+                <constraint firstItem="IIl-es-xWB" firstAttribute="top" secondItem="FV1-Jm-cBF" secondAttribute="top" id="LJ5-q6-o3r"/>
+                <constraint firstAttribute="trailing" secondItem="eXz-El-drO" secondAttribute="trailing" id="P4t-go-xaa"/>
+                <constraint firstAttribute="bottom" secondItem="DlC-dw-If5" secondAttribute="bottom" id="VcQ-YJ-ABE"/>
+                <constraint firstItem="1Wg-zr-v5B" firstAttribute="top" secondItem="FV1-Jm-cBF" secondAttribute="top" constant="102" id="dHK-Jr-kmD"/>
+                <constraint firstAttribute="bottom" secondItem="eXz-El-drO" secondAttribute="bottom" id="iZU-7g-dN9"/>
+                <constraint firstAttribute="trailing" secondItem="IIl-es-xWB" secondAttribute="trailing" id="ixt-gj-7vO"/>
+                <constraint firstItem="1Wg-zr-v5B" firstAttribute="centerX" secondItem="FV1-Jm-cBF" secondAttribute="centerX" id="jO2-ac-FnS"/>
+                <constraint firstItem="IIl-es-xWB" firstAttribute="leading" secondItem="FV1-Jm-cBF" secondAttribute="leading" id="mpQ-TM-mqA"/>
+                <constraint firstItem="eXz-El-drO" firstAttribute="leading" secondItem="DlC-dw-If5" secondAttribute="trailing" id="vaG-Xw-4oE"/>
+                <constraint firstItem="jd5-J9-7Xm" firstAttribute="leading" secondItem="FV1-Jm-cBF" secondAttribute="leading" id="wIf-fY-KXb"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

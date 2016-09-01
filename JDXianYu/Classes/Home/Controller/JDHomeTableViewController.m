@@ -182,6 +182,11 @@
     
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.tableView.tableHeaderView.bounds = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 240);
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
