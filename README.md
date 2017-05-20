@@ -6,7 +6,9 @@
 
 ## 发布动画效果
 
-![post](/Users/Admin/Desktop/JDXianYu/post.gif)
+![post](post.gif)
+
+
 
 ## 其余效果
 
